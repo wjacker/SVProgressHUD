@@ -855,6 +855,13 @@ static const CGFloat SVProgressHUDLabelSpacing = 8.0f;
         self.hudView.isAccessibilityElement = YES;
     }
     
+    [CATransaction begin];
+    [self.layer removeAllAnimations];
+    [self.hudView.layer removeAllAnimations];
+    [self.backgroundView.layer removeAllAnimations];
+    [self.controlView.layer removeAllAnimations];
+    [CATransaction commit];
+    
     // Show if not already visible
     // Checking one alpha value is sufficient as they are all the same
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 80000
